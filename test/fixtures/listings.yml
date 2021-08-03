@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  category: one
+  platform: one
+  title: MyString
+  condition: 1
+  price: 1
+  description: MyText
+  sold: false
+
+two:
+  user: two
+  category: two
+  platform: two
+  title: MyString
+  condition: 1
+  price: 1
+  description: MyText
+  sold: false
