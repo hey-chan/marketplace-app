@@ -11,33 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :category_id %>
-    <%= form.select :category_id, @categories.map {|cat| [cat.name, cat.id]}%>
+  <div class="form-group mb-3 ml-2">
+    <%= form.label :category_id, class: "col form-label" %>
+    <%= form.select :category_id, @categories.map {|cat| [cat.name, cat.id]}, class: "col form-select"%>
   </div>
 
-  <div class="field">
-    <%= form.label :platform_id %>
-    <%= form.select :platform_id, @platforms.map {|plat| [plat.name, plat.id]} %>
+  <div class="form-group mb-3 ml-2">
+    <%= form.label :platform_id, class: "col form-label"  %>
+    <%= form.select :platform_id, @platforms.map {|plat| [plat.name, plat.id]}, class: "form-select" %>
   </div>
 
-  <div class="field">
-    <%= form.label :title %>
+  <div class="form-group mb-3 ml-2">
+    <%= form.label :title, class: "col form-label"  %>
     <%= form.text_field :title %>
   </div>
+  
+  <h6 class="mb-2 ml-2">Condition</h6>
 
-  <div class="field">
-    <%= form.label :condition %>
-    <%= form.number_field :condition %>
+  <div class="form-check form-check-line mb-3 ml-2">
+    <% @conditions.each do |option| %>
+      <%= form.label :condition, option.capitalize, class:"form-label mr-1"%>
+      <%= form.radio_button :condition, option%>
+    <% end %>
   </div>
 
-  <div class="field">
-    <%= form.label :price %>
+  <div class="form-group mb-3 ml-2">
+    <%= form.label :price, class: "col form-label"  %>
     <%= form.number_field :price %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
+  <div class="form-group mb-3 ml-2">
+    <%= form.label :description, class: "col form-label" %>
     <%= form.text_area :description %>
   </div>
 
