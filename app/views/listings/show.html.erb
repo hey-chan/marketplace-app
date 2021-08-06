@@ -1,6 +1,6 @@
 
 <p>
-  <strong>User:</strong>
+  <strong>Listing by:</strong>
   <%= @listing.user.username %>
 </p>
 
@@ -38,6 +38,8 @@
   <strong>Sold:</strong>
   <%= @listing.sold %>
 </p>
+
+<%= image_tag @listing.picture, class: "main-image" if @listing.picture.attached? %>
 
 <%= link_to 'Edit', edit_listing_path(@listing) %> |
 <%= link_to 'Back', listings_path %>
