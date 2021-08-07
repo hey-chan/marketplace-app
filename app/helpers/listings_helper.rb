@@ -3,7 +3,7 @@ module ListingsHelper
     return listing.picture if listing.picture.attached?
 
     # If there's no pic attached, will default to using this image. Links to show.html.erb
-    return "gamecartridge.jpeg"
+    return "gamecartridge.jpg"
     
   end
 end
