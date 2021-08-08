@@ -13,7 +13,7 @@
     <p class="blockquote mt-2">Platform: <%= @listing.platform.name %></p>
     <br>
     <p class="blockquote mt-2">Description: <%= @listing.description%></p>
-    <p class="blockquote mt-2">Price: $<%= @listing.price%></p>
+    <p class="blockquote mt-2">Price: $<%= @listing.price / 100.0 %></p>
     <p class="blockquote mt-2">Sold: <%= @listing.sold%></p>
     <% if current_user && @listing.sold == false %>
       <button data-stripe="payment" class="btn btn-primary p-3">Buy</button>
@@ -22,13 +22,14 @@
     <% else %>
       <%= button_to "Login to buy", new_user_session_path, class: "btn btn-info" %>
     <% end %>
+    <%=link_to "Edit", edit_listing_path(@listing.id), class: "btn btn-warning p-3" if current_user&.id == @listing.user_id%>
+    <%=link_to "Delete", @listing, method: :delete, data: {confirm: "Are you sure you want to delete this listing?"} , class: "btn btn-danger p-3" if current_user&.id == @listing.user_id %>
   </div>
-  <div class='container'>
+  <%# <div class='container'>
     <div class ='d-flex justify-content-evenly'>
-      <%=link_to "Edit", edit_listing_path(@listing.id), class: "btn btn-warning mr-3" if current_user&.id == @listing.user_id%>
-      <%=link_to "Delete", @listing, method: :delete, data: {confirm: "Are you sure?"} , class: "btn btn-danger mr-3" if current_user&.id == @listing.user_id %>
+      
     </div>
-  </div>
+  </div> %>
 </section>
 
 
