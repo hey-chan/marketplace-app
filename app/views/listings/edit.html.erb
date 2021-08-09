@@ -1,6 +1,9 @@
-<h1>Editing Listing</h1>
+<div class="mx-5">
+  <h1 class="mx-5">Editing Listing</h1>
 
-<%= render 'form', listing: @listing %>
-
-<%= link_to 'Show', @listing %> |
-<%= link_to 'Back', listings_path %>
+  <%= render 'form', listing: @listing %>
+  <div class="mx-5">
+    <%= link_to 'Show', @listing, class: "btn btn-success" %>
+    <%= link_to 'Back', listings_path, class: "btn btn-secondary" %>
+  </div>
+</div>
