@@ -1,4 +1,4 @@
-<h3>Thank you for purchasing: <%=@title %>. <a href=<%=@order.receipt_url%>>View Receipt</a></h3>
+<h3>Thank you for purchasing: <%=@title %>
+<a target="_blank" href=<%=@order.receipt_url%>>View Receipt</a></h3>
 
-
-
+<%= link_to "View Receipt", @order.receipt_url, target: "_blank", class: "btn btn-info" %>
