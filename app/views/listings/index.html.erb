@@ -26,7 +26,7 @@
             <td><%= listing.platform.name %></td>
             <td><%= listing.title %></td>
             <td><%= listing.condition %></td>
-            <td>$<%= listing.price %></td>
+            <td>$<%= listing.price / 100.00 %></td>
             <td><%= listing.sold %></td>
             <td><%= listing.description %></td>
             <td><%= link_to 'Show', listing %></td>
