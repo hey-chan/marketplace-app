@@ -60,3 +60,5 @@ gem "devise"
 gem "aws-sdk-s3", "~> 1.98"
 
 gem "stripe", "~> 5.37"
+
+gem "ransack", "~> 2.4"

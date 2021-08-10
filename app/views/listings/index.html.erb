@@ -1,46 +1,31 @@
 <div class="mx-5">
-  <p id="notice mx-5"><%= notice %></p>
-    <h1 class="mx-5">Listings</h1>
+  <h1 class="mx-5">Welcome to Vintage video games</h1>
 
-    <div class="mx-5">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>User</th>
-          <th>Category</th>
-          <th>Platform</th>
-          <th>Title</th>
-          <th>Condition</th>
-          <th>Price</th>
-          <th>Sold</th>
-          <th>Description</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @listings.each do |listing| %>
-          <tr>
-            <td><%= listing.user.username %></td>
-            <td><%= listing.category.name %></td>
-            <td><%= listing.platform.name %></td>
-            <td><%= listing.title %></td>
-            <td><%= listing.condition %></td>
-            <td>$<%= listing.price / 100.00 %></td>
-            <td><%= listing.sold %></td>
-            <td><%= listing.description %></td>
-            <td><%= link_to 'Show', listing %></td>
-            <% if user_signed_in? %>
-              <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
-              <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            <% end %>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-
-
-    <br>
-
-  <%= link_to 'New Listing', new_listing_path, class: "btn btn-primary" %>
+  <div class="mx-5">
+    <%= search_form_for @q do |f| %>
+      <%= f.label :title_cont %>
+      <%= f.search_field :title_cont %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+  <div class="row row-cols-1 row-cols-md-4 g-4 mx-5">
+    <% @listings.each do |listing|%>
+      <div class="col">
+        <div class="card h-100">
+          <% if listing.picture.attached? %>
+            <%= link_to (image_tag listing.picture, class: "card-img-top"), listing %>
+          <% else %>
+            <%= link_to (image_tag 'gamecartridge.jpg', class: "card-img-top"), listing %>
+          <% end %>
+          <div class="card-body">
+            <h4 class="card-title"><%= listing.title %></h4>
+            <h6 class="card-text">Listed by: <%= listing.user.username %></h6>
+            <p class="card-text listing-description"><%= listing.description %></p>
+            <h5 class="card-text">$<%= listing.price / 100.00 %></h5>
+            <%= link_to "Show more", listing_path(listing.id), class: "btn btn-primary btn-right" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
