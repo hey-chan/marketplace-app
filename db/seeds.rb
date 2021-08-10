@@ -29,5 +29,5 @@ end
 
 # Test user
 if User.count == 0
-  User.create(username: "admin", email: "admin@testing.com", password: "admins", password_confirmation: "admins")
+  User.create(username: "admin", email: "admin@testing.com", password: "admins", password_confirmation: "admins", admin: true)
 end
