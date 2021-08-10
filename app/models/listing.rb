@@ -4,6 +4,7 @@ class Listing < ApplicationRecord
   belongs_to :platform
   enum condition: {poor: 0, acceptable: 1, good: 2, great: 3, mint: 4}
   has_one_attached :picture
+  has_one :order, dependent: :destroy
 
   before_save :remove_whitespace
   before_save :convert_to_cents, if: :price_changed?
