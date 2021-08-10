@@ -1,7 +1,7 @@
 <div class="mx-5">
   <h1 class="mx-5">Welcome to Vintage video games</h1>
 
-  <div class="mx-5">
+  <div class="mx-5 mb-3">
     <%= search_form_for @q do |f| %>
       <%= f.label :title_cont %>
       <%= f.search_field :title_cont %>
@@ -10,7 +10,7 @@
   </div>
   <div class="row row-cols-1 row-cols-md-4 g-4 mx-5">
     <% @listings.each do |listing|%>
-      <div class="col">
+      <div class="col mb-4">
         <div class="card h-100">
           <% if listing.picture.attached? %>
             <%= link_to (image_tag listing.picture, class: "card-img-top"), listing %>
@@ -20,9 +20,11 @@
           <div class="card-body">
             <h4 class="card-title"><%= listing.title %></h4>
             <h6 class="card-text">Listed by: <%= listing.user.username %></h6>
-            <p class="card-text listing-description"><%= listing.description %></p>
             <h5 class="card-text">$<%= listing.price / 100.00 %></h5>
-            <%= link_to "Show more", listing_path(listing.id), class: "btn btn-primary btn-right" %>
+            <%= link_to "See more", listing_path(listing.id), class: "btn btn-info text-white" %>
+            <% if listing.sold == true %>
+              <button class="btn btn-secondary float-right" disabled>Sold</button>
+            <% end %>
           </div>
         </div>
       </div>
