@@ -3,6 +3,8 @@ class PagesController < ApplicationController
   def home
     @q = Listing.ransack(params[:q])
     @listings = @q.result
+
+    # @listings = Listing.all
   end
   
 end

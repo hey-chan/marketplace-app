@@ -1,4 +1,4 @@
-<div class="mx-5">
+<div class="mx-auto" style="width: 45em">
   <h2 class="ml-5">Sign in</h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -20,7 +20,7 @@
     <% end %>
 
     <div class="mx-5">
-      <%= f.submit "Sign In", class: "btn btn-primary" %>
+      <%= f.submit "Sign In", class: "btn btn-primary mr-2" %>
       <%= render "devise/shared/links" %>
     </div>
   <% end %>
