@@ -10,7 +10,7 @@ class ListingsController < ApplicationController
   def index
     @q = Listing.ransack(params[:q])
     @listings = @q.result
-
+    @orders = Order.all
 
     # Sort feature: will focus on another time
     # if params[:order]== "Price(high-low)"

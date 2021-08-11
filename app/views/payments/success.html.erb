@@ -1,6 +1,51 @@
-<div class="mx-auto" style="width: 50em;">
-<h3>Thank you for purchasing: <%=@title %></h3>
-<br>
-<%= link_to "View Receipt", @order.receipt_url, target: "_blank", class: "btn btn-info" %>
+<div class="mx-auto" style="width: 40em;">
+  <h3>Thank you <%=current_user.username %>, for purchasing:</h3>
+  <h3><%=@title %></h3>
+  <br>
+  <div class="row row-cols-1 row-cols-md-2 g-4 mb-4">
+    <% if @listing.picture.attached? %>
+      <%= image_tag @listing.picture, class: "thumbnail card-img top" %>
+    <% else %>
+      <%= image_tag 'gamecartridge.jpg', class: "thumbnail card-img-top" %>
+    <% end %>
+  </div>
 
+    <p>
+      <strong>Title:</strong>
+      <%= @listing.title %>
+    </p>
+  
+    <p>
+      <strong>Listed by:</strong>
+      <%= @listing.user.username %>
+    </p>
+  
+    <p>
+      <strong>Category:</strong>
+      <%= @listing.category.name %>
+    </p>
+
+    <p>
+      <strong>Description:</strong>
+      <%= @listing.description %>
+    </p>
+
+    <p>
+      <strong>Condition:</strong>
+      <%= @listing.condition.name %>
+    </p>
+
+    <p>
+      <strong>Price: </strong>
+      $<%= @listing.price / 100.00 %>
+    </p>
+
+    <p>
+      <strong>Order Date:</strong>
+      <%= @listing.updated_at.strftime("%d/%m/%Y")%>
+    </p>
+    <div class="mb-5">
+      <%= link_to "View Receipt", @order.receipt_url, target: "_blank", class: "btn btn-info mr-2" %>
+      <%= link_to 'Back to all listings', root_path, class: "btn btn-secondary text-white" %>
+    </div>
 </div>
