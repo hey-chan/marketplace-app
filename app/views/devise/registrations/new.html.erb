@@ -26,7 +26,36 @@
       <%= f.label :password_confirmation, class: "form-label" %><br/>
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
     </div>
+    <br>
+    <h3 class="mx-5">Address</h3>
 
+    <%= f.fields_for :address, Address.new do |form| %>
+      <div class="mx-5 mb-3">
+        <%= form.label :street_name, class: "form-label"  %>
+        <%= form.text_field :street_name, class: "form-control" %>
+      </div>
+
+      <div class="mx-5 mb-3">
+        <%= form.label :suburb, class: "form-label"  %>
+        <%= form.text_field :suburb, class: "form-control" %>
+      </div>
+
+      <div class="mx-5 mb-3">
+        <%= form.label :postcode, class: "form-label"  %>
+        <%= form.number_field :postcode, class: "form-control" %>
+      </div>
+
+      <div class="mx-5 mb-3">
+        <%= form.label :state, class: "form-label"  %>
+        <%= form.text_field :state, class: "form-control" %>
+      </div>
+
+      <div class="mx-5 mb-4">
+        <%= form.label :country, class: "form-label"  %>
+        <%= form.text_field :country, class: "form-control" %>
+      </div>
+    <% end%>
+  
     <div class="mx-5">
       <%= f.submit "Sign Up", class: "btn btn-primary" %>
       <%= render "devise/shared/links" %>

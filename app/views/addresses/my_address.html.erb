@@ -1,0 +1,31 @@
+<h2 class="mb-4">My Profile</h2>
+
+<% if @address.exist %>
+<p>
+  <strong>Street address:</strong>
+  <%= @address.street_address %>
+</p>
+
+<p>
+  <strong>Suburb:</strong>
+  <%= @address.suburb %>
+</p>
+
+<p>
+  <strong>Postcode:</strong>
+  <%= @address.postcode %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @address.state %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @address.country %>
+</p>
+<% end %>
+
+<h1>Address is not listed</h1>
+<%= link_to 'Edit', edit_address_path(@address), class: "btn btn-success"%>
