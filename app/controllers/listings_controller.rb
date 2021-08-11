@@ -10,6 +10,18 @@ class ListingsController < ApplicationController
   def index
     @q = Listing.ransack(params[:q])
     @listings = @q.result
+
+
+    # Sort feature: will focus on another time
+    # if params[:order]== "Price(high-low)"
+    #   @listings = Listing.order(price: :desc) if params[:order]== "Price(high-low)"
+    # elsif params[:order] == "Price(low-high)"
+    #   @listings = Listing.order(price: :asc) 
+    # else
+    #   @listings = Listing.all
+    # end
+   
+
   end
 
   # GET /listings/1 or /listings/1.json

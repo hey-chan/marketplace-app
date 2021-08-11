@@ -3,10 +3,24 @@
 
   <div class="mx-5 mb-4 mt-4">
     <%= search_form_for @q do |f| %>
-      <%= f.label :title_cont %>
-      <%= f.search_field :title_cont %>
-      <%= f.submit %>
+      <%= f.search_field :title_cont, placeholder: "Search for..", class:"form-control mb-2", style:"width: 30em;" %>
+      <%= f.submit class: "btn btn-secondary mr-2" %>
+      <%= link_to "Clear", request.path, class: "btn btn-outline-secondary" %>
     <% end %>
+    <br>
+
+
+    <!-- Sort feature: focus on later
+    <h4> Or sort by:</h4>
+    <%= form_with url: listings_path, class: "mt-2", method: :get, local: true do |form| %>
+      <%= form.select :order, ["Price(high-low)", "Price (low-high)"] %>
+      <br>
+      <%= form.submit "Sort", class: "btn btn-secondary mt-2 mr-2" %>
+      <%= link_to "Clear", request.path, class: "btn btn-outline-secondary mt-2" %>
+    <% end %>
+    -->
+    
+   
   </div>
   <div class="row row-cols-1 row-cols-md-4 g-4 mx-5">
     <% @listings.each do |listing|%>
