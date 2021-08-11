@@ -32,10 +32,7 @@
     <div class="form-group mb-3 ml-2">
       <%= form.label :condition_id, class:"form-label" %>
       <br>
-        <% @conditions.each do |option| %>
-          <%= form.label :condition, option.capitalize, class:"form-check-label m-3"%>
-          <%= form.radio_button :condition, option%>
-        <% end %>
+      <%= form.collection_radio_buttons(:condition_id, Condition.all, :id, :name, {}, {class:"form-check-label m-2"}) %>
     </div>
 
  

@@ -3,8 +3,8 @@ class ListingsController < ApplicationController
   before_action :set_listing, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: [:index, :show]
   # before_action :authorise_user, only: [:edit, :update, :destroy]
-  before_action :set_form_vars, only: [:new, :edit]
-  before_action :set_platforms, only: [:new, :edit]
+  before_action :set_condition_category_platforms, only: [:new, :edit]
+
 
   # GET /listings or /listings.json
   def index
@@ -71,8 +71,7 @@ class ListingsController < ApplicationController
         format.html { redirect_to @listing, notice: "Listing was successfully created." }
         format.json { render :show, status: :created, location: @listing }
       else
-        set_form_vars
-        set_platforms
+        set_condition_category_platforms
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @listing.errors, status: :unprocessable_entity }
       end
@@ -86,8 +85,7 @@ class ListingsController < ApplicationController
         format.html { redirect_to @listing, notice: "Listing was successfully updated." }
         format.json { render :show, status: :ok, location: @listing }
       else
-        set_form_vars
-        set_platforms
+        set_condition_category_platforms
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @listing.errors, status: :unprocessable_entity }
       end
@@ -131,17 +129,14 @@ class ListingsController < ApplicationController
     
     # Only allow a list of trusted parameters through.
     def listing_params
-      params.require(:listing).permit(:user_id, :category_id, :platform_id, :title, :condition, :price, :description, :sold, :picture)
+      params.require(:listing).permit(:user_id, :category_id, :platform_id, :condition_id, :title, :condition, :price, :description, :sold, :picture)
     end
 
-    def set_form_vars
+    def set_condition_category_platforms
       @categories = Category.all
-      @conditions = Listing.conditions.keys
-    end
-    
-    def set_platforms
       @platforms = Platform.all
+      @conditions = Condition.all
     end
-
+ 
 
 end

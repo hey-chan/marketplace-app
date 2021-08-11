@@ -2,12 +2,12 @@ class Listing < ApplicationRecord
   belongs_to :user
   belongs_to :category
   belongs_to :platform
+  belongs_to :condition
   has_one_attached :picture
   has_one :order, dependent: :destroy
 
   # Form field validation
   validates :title, :condition, :price, :description, presence: true
-  enum condition: {poor: 0, acceptable: 1, good: 2, great: 3, mint: 4}
 
   before_save :remove_whitespace
   before_save :convert_to_cents, if: :price_changed?

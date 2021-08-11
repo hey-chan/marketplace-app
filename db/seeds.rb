@@ -26,6 +26,15 @@ if Category.count == 0
   end
 end
 
+# Conditions table
+conditions = ["Poor", "Acceptable", "Good", "Great", "Mint"]
+
+if Condition.count == 0
+  conditions.each do |condition|
+    Condition.create(name: condition)
+    puts "Created #{condition} condition"
+  end
+end
 
 # Test user
 if User.count == 0
