@@ -24,9 +24,9 @@
           <%=link_to "Delete", @listing, method: :delete, data: {confirm: "Are you sure you want to delete this listing?"} , class: "btn btn-danger p-3 m-1 text-white" %>
         <% elsif @listing.sold == true %>
           <button class="btn btn-secondary p-3 m-1" disabled>Sold</button>
-          <% if @order.buyer_id %>
+          <!-- View Orders purchased by current user. Needs conditional statement to make this function
            <a class="text-white btn btn-info p-3 m-1" href=<%="#{root_url}/success?id=#{@listing.id}" %>>View Order</a>
-          <% end%>
+          -->
         <% else %>
         <% if @listing.sold == false %>
           <%= button_to "Buy", create_payment_intent_path, method: :post, remote: true, params:{id: @listing.id}, class: "btn btn-primary p-3"%>
