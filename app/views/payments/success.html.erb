@@ -1,3 +1,6 @@
-<h3>Thank you for purchasing: <%=@title %>
+<div class="mx-auto" style="width: 50em;">
+<h3>Thank you for purchasing: <%=@title %></h3>
 <br>
 <%= link_to "View Receipt", @order.receipt_url, target: "_blank", class: "btn btn-info" %>
+
+</div>
