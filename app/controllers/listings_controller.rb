@@ -71,6 +71,8 @@ class ListingsController < ApplicationController
         format.html { redirect_to @listing, notice: "Listing was successfully created." }
         format.json { render :show, status: :created, location: @listing }
       else
+        set_form_vars
+        set_platforms
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @listing.errors, status: :unprocessable_entity }
       end
@@ -84,6 +86,8 @@ class ListingsController < ApplicationController
         format.html { redirect_to @listing, notice: "Listing was successfully updated." }
         format.json { render :show, status: :ok, location: @listing }
       else
+        set_form_vars
+        set_platforms
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @listing.errors, status: :unprocessable_entity }
       end

@@ -1,8 +1,8 @@
-<div class="mx-5">
+<div class="mx-auto" style="width: 50em;">
   <%= form_with(model: listing) do |form| %>
     <% if listing.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
+      <div id="error_explanation" class="mx-auto" style="width: 50em;">
+        <h4><%= pluralize(listing.errors.count, "error") %> prohibited this listing from being saved:</h4>
 
         <ul>
           <% listing.errors.each do |error| %>
@@ -30,12 +30,12 @@
     </div>
     
     <div class="form-group mb-3 ml-2">
-    <%= form.label :condition_id, class:"form-label" %>
-    <br>
-      <% @conditions.each do |option| %>
-        <%= form.label :condition, option.capitalize, class:"form-check-label m-3"%>
-        <%= form.radio_button :condition, option%>
-      <% end %>
+      <%= form.label :condition_id, class:"form-label" %>
+      <br>
+        <% @conditions.each do |option| %>
+          <%= form.label :condition, option.capitalize, class:"form-check-label m-3"%>
+          <%= form.radio_button :condition, option%>
+        <% end %>
     </div>
 
  
