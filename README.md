@@ -7,6 +7,7 @@ A marketplace for old school video games, consoles and related accessories from 
 ---
 #### Links
 Deployed site: http://vintagevideogames.herokuapp.com/
+
 GitHub repository: https://github.com/hey-chan/marketplace-app 
 
 ---
