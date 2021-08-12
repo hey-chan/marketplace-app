@@ -120,6 +120,18 @@ This application makes use of ActiveRecord to manage the database, with use of P
 **3. Active Storage**   
 This application makes use of Active Storage to facilitate image upload and retrieval, with help from AWS S3 buckets
 
+---
+## Project mangement
+Trello was used to assist in the planning and implementation of this project. 
+
+I started off with planning for the features I wanted to added, followed by approval of the idea, adding the required code, and then focusing on additional features, while reviewing my progress and marking task off 
+
+Link to Trello board: https://trello.com/b/LC1lU1tE/marketplaceapp 
+
+Additionally, I made use of some wireframes to assist in planning the front end of the project
+
+---
+
 ## Screenshots
 #### Wireframes
 ![a-listing-wf](./app/assets/images/screenshots/a-listing-wf.png)
