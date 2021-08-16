@@ -110,7 +110,7 @@ A listing can have one and only one relation to an order. In the reverse, there 
 A user can have a zero or many relation to an order, while an order has a one and only one relation to users
 
 ---
-## High-Level Components in Marketplants
+## High-Level Components used in this application
 **1. Action Controller**  
 This application makes use of the Action Controller to manage the actions between the view and controller. Additionally, it handles HTTP requests from users browsers, and after receiving a request, it responds by checking the correct method, and returns from the view
 
